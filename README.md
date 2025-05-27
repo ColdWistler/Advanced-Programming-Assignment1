@@ -74,3 +74,17 @@ Select account (1: Savings, 2: Current):
 Enter amount: 6000
 
 Withdrawal failed: Insufficient balance!
+```
+
+## File Structure
+```
+RBAMS/
+│
+├── BankAccount.java
+├── SavingsAccount.java
+├── CurrentAccount.java
+├── Customer.java
+├── InsufficientBalanceException.java
+├── Main.java
+└── README.md
+```
