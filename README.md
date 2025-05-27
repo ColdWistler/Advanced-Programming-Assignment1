@@ -1,66 +1,76 @@
-Rural Bank Account Management System (RBAMS)
-📘 Project Overview
+# 🌾 Rural Bank Account Management System (RBAMS)
 
-The Rural Bank Account Management System is a console-based Java application developed to simulate basic banking operations for the Rural Bank of Nepal (RBN). It aims to offer simple, secure, and efficient financial services like savings and current accounts tailored to remote and rural populations.
-📦 Features
+## 📘 Project Overview
 
-    Support for multiple account types: Savings and Current
+The **Rural Bank Account Management System** is a console-based Java application developed to simulate basic banking operations for the *Rural Bank of Nepal (RBN)*. It aims to offer simple, secure, and efficient financial services like savings and current accounts tailored to remote and rural populations.
 
-    Interest application on savings accounts
+---
 
-    Overdraft support for current accounts
+## 📦 Features
 
-    Secure transactions with custom exception handling
+- Support for **multiple account types**: Savings and Current
+- **Interest application** on savings accounts
+- **Overdraft support** for current accounts
+- Secure transactions with **custom exception handling**
+- Full implementation of **Object-Oriented Programming (OOP)** principles
 
-    Object-Oriented Programming principles implemented throughout
+---
 
-🧱 Class Design
-1. Abstract Class: BankAccount
+## 🧱 Class Design
 
-    Common attributes: accountHolderName, accountNumber, balance
+### 🔹 Abstract Class: `BankAccount`
+- Common attributes: `accountHolderName`, `accountNumber`, `balance`
+- Common methods: `deposit()`, `withdraw()`, `displayDetails()`
 
-    Common methods: deposit(), withdraw(), displayDetails()
+### 🔹 Derived Classes
+- `SavingsAccount`: 
+  - Adds method to apply interest
+  - Restricts withdrawals beyond balance
+- `CurrentAccount`: 
+  - Supports a predefined overdraft limit
+  - Allows negative balance up to limit
 
-2. Derived Classes
+### 🔹 `Customer` Class
+- Aggregates multiple accounts
+- Manages operations across all linked accounts
 
-    SavingsAccount:
+### 🔹 Optional: `Transaction` Interface
+- May define standard banking operations for future scalability
 
-        Adds method to apply interest
+---
 
-        Restricts withdrawals beyond balance
+## 🔐 Exception Handling
 
-    CurrentAccount:
+- **Custom Exception**: `InsufficientBalanceException`
+  - Triggered when withdrawal rules are violated
+  - Caught with clear, user-friendly messages in the console
 
-        Supports a predefined overdraft limit
+---
 
-        Allows negative balance up to limit
+## ✅ Supported Operations
 
-3. Customer Class
+- Deposit money into any account
+- Withdraw money (with savings/overdraft rules)
+- Apply interest to savings accounts
+- Handle overdraft logic for current accounts
+- Display all accounts of a customer
 
-    Aggregates multiple accounts
+---
 
-    Can perform operations across all linked accounts
+## 🖥 Sample Console Interaction
 
-4. Interface (Optional): Transaction
+```text
+Welcome to Rural Bank of Nepal
+Enter customer name: Sita Devi
 
-    May define standard banking operations for implementation flexibility
+Choose operation:
+1. Deposit
+2. Withdraw
+3. Add Interest
+4. View Accounts
+5. Exit
 
-🔐 Exception Handling
+Select account (1: Savings, 2: Current):
+Enter amount: 6000
 
-    Custom Exception: InsufficientBalanceException
-
-        Thrown when withdrawal rules are violated
-
-        Caught with meaningful user messages
-
-✅ Supported Operations
-
-    Deposit into any account
-
-    Withdraw from account (rules applied)
-
-    Add interest to savings accounts
-
-    Handle overdraft logic for current accounts
-
-    Display details of all accounts linked to a customer
+Withdrawal failed: Insufficient balance!
